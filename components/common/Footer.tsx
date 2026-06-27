@@ -60,7 +60,7 @@ ContactCard.displayName = "ContactCard";
 
 const Footer = () => {
   return (
-    <footer className="relative mt-70 w-full bg-primary pt-44 pb-16 lg:pt-32">
+    <footer className="relative mt-40 w-full bg-primary pt-44 pb-16 lg:pt-32">
       <ContactCard />
 
       <div className="container mx-auto flex flex-col items-center px-6 text-center">
