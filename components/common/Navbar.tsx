@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl bg-white/70 backdrop-blur-xl shadow-md rounded-full md:border md:border-primary/20 transition-all duration-300">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl bg-white/70 backdrop-blur-xl shadow-[0_15px_45px_rgba(0,168,232,0.10)] rounded-full md:border md:border-primary/20 transition-all duration-300">
         <nav className="mx-auto px-6 py-3.5 md:px-12 lg:px-20">
           {/* Desktop */}
           <div className="hidden md:grid grid-cols-3 items-center">
