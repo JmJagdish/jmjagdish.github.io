@@ -21,11 +21,12 @@ const Button = ({
       className={cn(
         "rounded-full px-7 py-2 cursor-pointer",
         "text-white",
-        "bg-linear-to-r from-cyan-400 via-blue-600 to-purple-500",
+        "bg-linear-to-r from-cyan-400 to-blue-600",
         "border-2",
         "transition-all duration-300",
         "hover:bg-none hover:bg-white",
-        "hover:text-gray-800",
+        "hover:border-2",
+        "hover:text-primary",
         "hover:border-primary",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className
