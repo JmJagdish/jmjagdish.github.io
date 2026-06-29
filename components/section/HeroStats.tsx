@@ -54,7 +54,7 @@ const stats = [
 
 const HeroStats = () => {
   return (
-    <section className="w-full flex items-center justify-center rounded-3xl bg-white/80 border border-white/60 shadow-[0_20px_70px_rgba(0,168,232,0.08)] backdrop-blur-xl">
+    <section id="skills" className="w-full flex items-center justify-center rounded-3xl bg-white/80 border border-white/60 shadow-[0_20px_70px_rgba(0,168,232,0.08)] backdrop-blur-xl">
       <div className="w-[90%] rounded-3xl ">
         {/* Heading */}
         <div className="mb-8 text-center">

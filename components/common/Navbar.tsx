@@ -17,11 +17,11 @@ const navLinks = [
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "/#projects",
   },
   {
     name: "Skills",
-    href: "/skills",
+    href: "/#skills",
   },
 ];
 
@@ -68,13 +68,15 @@ const Navbar = () => {
 
           {/* Mobile */}
           <div className="flex md:hidden items-center justify-between">
-            <BrandLogo />
+            <Link href="/" onClick={closeMenu}>
+              <BrandLogo />
+            </Link>
 
             <button
               onClick={toggleMenu}
-              className="relative z-100 text-primary"
+              className="relative z-100 w-10 h-10 rounded-full flex items-center justify-center bg-primary/10 text-primary"
             >
-              {isOpen ? <X size={34} /> : <Menu size={34} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </nav>
@@ -82,17 +84,28 @@ const Navbar = () => {
 
       {/* Mobile Full Screen Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-white/90 backdrop-blur-xl md:hidden transition-all duration-500
+        className={`fixed top-20 left-4 right-4 z-40 md:hidden 
+        rounded-2xl bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+        border border-primary/10 overflow-hidden
+        transition-all duration-300 ease-out
         ${
           isOpen
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-full opacity-0 pointer-events-none"
+            ? "max-h-100 opacity-100 scale-100"
+            : "max-h-0 opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        <div className="h-full flex flex-col items-center justify-center gap-10 text-xl text-primary">
+        <div className="flex flex-col px-6 py-8 gap-6 text-primary">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} onClick={closeMenu}>
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={closeMenu}
+              className="flex items-center justify-between text-lg font-medium 
+              hover:bg-primary/5 rounded-xl px-4 py-3 transition"
+            >
               {link.name}
+
+              <span className="text-sm">→</span>
             </Link>
           ))}
 
@@ -100,9 +113,9 @@ const Navbar = () => {
             href="/resume/resume.pdf"
             target="_blank"
             onClick={closeMenu}
-            className="rounded-full border-2 border-primary px-7 py-2"
+            className="mt-2"
           >
-            Resume
+            <Button>Resume</Button>
           </Link>
         </div>
       </div>

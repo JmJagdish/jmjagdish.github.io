@@ -38,7 +38,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="relative overflow-hidden bg-[#f8fbff] py-20 sm:py-24 lg:py-28">
+    <section
+      id="projects"
+      className="scroll-mt-28 relative overflow-hidden bg-[#f8fbff] py-20 sm:py-24 lg:py-28"
+    >
       {/* Background Glow */}
 
       <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-[#00a8e8]/20 blur-3xl" />
