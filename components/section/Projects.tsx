@@ -1,42 +1,79 @@
-"use client";
+"use server";
 
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { ExternalLink } from "lucide-react";
 
-const projects = [
-  {
-    title: "JDine",
-    image: "/projects/JDine.png",
-    tech: ["Express", "Socket.io", "MySql", "ReactJs"],
-    description:
-      "A food delivery web application that allows users to explore restaurants, browse food items, place orders and enjoy a smooth online ordering experience.",
-    github: "https://github.com/JmJagdish/React-2025",
-    live: "https://jdinefood.netlify.app/",
-  },
+// const projects = [
+//   {
+//     title: "JDine",
+//     image: "/projects/JDine.png",
+//     tech: ["Express", "Socket.io", "MySql", "ReactJs"],
+//     description:
+//       "A food delivery web application that allows users to explore restaurants, browse food items, place orders and enjoy a smooth online ordering experience.",
+//     github: "https://github.com/JmJagdish/React-2025",
+//     live: "https://jdinefood.netlify.app/",
+//   },
 
-  {
-    title: "Photo Gallery",
-    image: "/projects/photoblog.png",
-    tech: ["Express", "NodeJs", "ReactJs", "MongoDb"],
-    description:
-      "A photo gallery web application that allows users to browse and share photos.",
-    github: "https://github.com/JmJagdish/Photo_Blog",
-    live: "https://photo-blog-five.vercel.app/",
-  },
+//   {
+//     title: "Photo Gallery",
+//     image: "/projects/photoblog.png",
+//     tech: ["Express", "NodeJs", "ReactJs", "MongoDb"],
+//     description:
+//       "A photo gallery web application that allows users to browse and share photos.",
+//     github: "https://github.com/JmJagdish/Photo_Blog",
+//     live: "https://photo-blog-five.vercel.app/",
+//   },
 
-  {
-    title: "Crocs Clone",
-    image: "/projects/airwalk.png",
-    tech: ["HTML5", "CSS3", "ReactJs", "Firebase Db"],
-    description:
-      "An e-commerce web app clone with PWA, similar to Crocs, allowing users to browse and purchase products.",
-    github: "#",
-    live: "#",
-  },
-];
+//   {
+//     title: "Crocs Clone",
+//     image: "/projects/airwalk.png",
+//     tech: ["HTML5", "CSS3", "ReactJs", "Firebase Db"],
+//     description:
+//       "An e-commerce web app clone with PWA, similar to Crocs, allowing users to browse and purchase products.",
+//     github: "#",
+//     live: "#",
+//   },
+// ];
 
-export default function Projects() {
+interface Project {
+  _id: string;
+  title: string;
+  image: string;
+  tech: string[];
+  description: string;
+  github: string;
+  live: string;
+}
+
+
+export default async function Projects() {
+
+let projects: Project[] = [];
+
+
+  try {
+
+    const response = await fetch(
+      "http://localhost:8080/api/projects",
+      {
+        cache: "no-store",
+      }
+    );
+
+
+    projects = await response.json();
+
+
+  } catch (error) {
+
+    console.error(
+      "Error fetching projects:",
+      error
+    );
+
+  }
+
   return (
     <section
       id="projects"
@@ -64,9 +101,10 @@ export default function Projects() {
         {/* Cards */}
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+
           {projects.map((project) => (
             <div
-              key={project.title}
+              key={project._id}
               className="
                 group
                 flex
@@ -148,4 +186,4 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};
